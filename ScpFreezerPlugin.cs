@@ -33,7 +33,7 @@ namespace ScpFreezer
 
         private void OnRoundStarted()
         {
-            // Czyścimy pamięć co rundę, żeby czasy się nie nałożyły
+            // Czyścimy pamięć
             _freezeEnds.Clear();
         }
 
@@ -41,7 +41,7 @@ namespace ScpFreezer
         {
             if (ev.Player == null || ev.Player.Role == null) return;
 
-            // Sprawdzamy w słowniku z configu, czy ta rola ma dostać freeza
+            // Sprawdzamy z configu czy postac ma dostac freeze
             if (Config.ScpFreezeSettings.TryGetValue(ev.Player.Role.Type, out bool shouldFreeze) && shouldFreeze)
             {
                 float timeToFreeze = Config.FreezeDuration;
